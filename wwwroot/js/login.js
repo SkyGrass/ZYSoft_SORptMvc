@@ -41,3 +41,11 @@
 var isEmpty = function (val) {
     return val == "" || val.length == 0 || val == null || val == void 0 || val == "null" || val == "undefined"
 }
+
+$(function () {
+    var username = window.localStorage.getItem('username');
+    var password = window.localStorage.getItem('password');
+
+    $('#username').val(username)
+    $('#userpwd').val(password)
+})

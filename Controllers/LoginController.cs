@@ -28,12 +28,10 @@ namespace SORptMvc.Controllers
             return View();
         }
 
-
-
         [AllowAnonymous]
         [HttpGet]
         [Route("auth")]
-        public IActionResult Get(string userName, string pwd)
+        public IActionResult Login(string userName, string pwd)
         {
             if (CheckAccount(userName, pwd, out string userId))
             {
@@ -57,6 +55,30 @@ namespace SORptMvc.Controllers
             {
                 return BadRequest(new { message = "username or password is incorrect." });
             }
+        }
+
+        [HttpPost]
+        [Route("mup")]
+        [Authorize]
+        public ActionResult ModifyPwd(Dictionary<string, string> dic)
+        {
+            try
+            {
+                return new JsonResult(new
+                {
+                    state = "success",
+                    msg = "修改成功,请重新登录!"
+                });
+            }
+            catch (Exception e)
+            {
+                return new JsonResult(new
+                {
+                    state = "error",
+                    msg = "请求接口发生错误!" + e.Message
+                });
+            }
+
         }
 
         /// <summary>
@@ -86,7 +108,7 @@ namespace SORptMvc.Controllers
 
                 throw;
             }
-           
+
 
             return true;
         }

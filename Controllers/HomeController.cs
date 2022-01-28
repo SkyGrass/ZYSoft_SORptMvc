@@ -46,7 +46,14 @@ namespace SORptMvc.Controllers
             ViewData["conf"] = JsonConvert.SerializeObject(columns);
             try
             {
-                ViewData["userName"] = HttpContext.Session.GetString("userName");
+                if (string.IsNullOrEmpty(HttpContext.Session.GetString("userName")))
+                {
+                    ViewData["errorInfo"] = "您的登录已超期,请重新登录!";
+                }
+                else
+                {
+                    ViewData["userName"] = HttpContext.Session.GetString("userName");
+                }
             }
             catch (Exception)
             {

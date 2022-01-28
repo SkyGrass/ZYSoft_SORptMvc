@@ -121,7 +121,6 @@ $('#cpw').click(function () {
 })
 
 $('#exit').click(function () {
-
     layer.confirm('确认要退出当前账号吗?', { btn: ['确定', '取消'], title: "提示" }, function () {
         window.location.href = "/login";
         $.cookie('token', null);

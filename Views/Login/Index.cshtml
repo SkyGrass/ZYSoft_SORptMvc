@@ -1,6 +1,5 @@
 ﻿@{
     Layout = null;
-    ViewData["Title"] = "Login Page";
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -8,6 +7,7 @@
 <script src="~/lib/layer/layer.min.js"></script>
 <link href="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/theme/default/layer.min.css" rel="stylesheet">
 <link rel="stylesheet" href="~/css/login.css" />
+<title>登录-销售订单查询系统</title>
 <body style="margin:0px !important">
     <div class="login">
 
@@ -21,9 +21,9 @@
                     </label>
                     <h2>密码</h2>
                     <label>
-                        <input type="password" name="textfield2" id="userpwd" class="txt_input" placeholder="请输入密码">
+                        <input type="password" id="userpwd" class="txt_input" placeholder="请输入密码">
                     </label>
-                    <p class="forgot"><a href="javascript:void(0);">忘记密码?</a></p>
+                    <p class="forgot">@*<a href="javascript:void(0);">忘记密码?</a>*@</p>
                     <div class="rem_sub">
                         <div class="rem_sub_l">
                             <input type="checkbox" name="checkbox" id="save_me" checked>
