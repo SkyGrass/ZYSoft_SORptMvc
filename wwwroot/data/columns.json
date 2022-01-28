@@ -1,0 +1,163 @@
+{
+  "column": [
+    {
+      "data": "col_0",
+      "title": "发货日期",
+      "width": 130,
+      "readOnly": true,
+      "filter": false,
+      "type": "date",
+      "dateFormat": "YYYY-MM-DD"
+    },
+    {
+      "data": "col_1",
+      "title": "发货月份",
+      "width": 100,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_2",
+      "title": "单据编号",
+      "width": 150,
+      "readOnly": true,
+      "filter": false,
+      "query": true
+    },
+    {
+      "data": "col_3",
+      "title": "客户",
+      "width": 300,
+      "readOnly": true,
+      "filter": false,
+      "query": true
+    },
+    {
+      "data": "col_4",
+      "title": "客户类型",
+      "width": 100,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_5",
+      "title": "销售类型",
+      "width": 100,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_6",
+      "title": "客户分管人员",
+      "width": 120,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_7",
+      "title": "客户分管部门",
+      "width": 120,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_8",
+      "title": "地区",
+      "width": 100,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_9",
+      "title": "存货",
+      "width": 300,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_10",
+      "title": "规格型号",
+      "width": 150,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_11",
+      "title": "品牌",
+      "width": 150,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_12",
+      "title": "数量",
+      "width": 80,
+      "readOnly": true,
+      "filter": false,
+      "type": "numeric"
+    },
+    {
+      "data": "col_13",
+      "title": "实际成交价",
+      "width": 120,
+      "readOnly": true,
+      "filter": false,
+      "type": "numeric",
+      "numericFormat": {
+        "pattern": "￥0,0.00",
+        "culture": "zh-CN"
+      }
+    },
+    {
+      "data": "col_14",
+      "title": "实际成交金额",
+      "width": 120,
+      "readOnly": true,
+      "filter": false,
+      "type": "numeric",
+      "numericFormat": {
+        "pattern": "￥0,0.00",
+        "culture": "zh-CN"
+      }
+    },
+    {
+      "data": "col_15",
+      "title": "批号",
+      "width": 150,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_16",
+      "title": "生产日期",
+      "width": 150,
+      "readOnly": true,
+      "filter": false,
+      "type": "date",
+      "dateFormat": "YYYY-MM-DD"
+    },
+    {
+      "data": "col_17",
+      "title": "失效日期",
+      "width": 150,
+      "readOnly": true,
+      "filter": false,
+      "type": "date",
+      "dateFormat": "YYYY-MM-DD"
+    },
+    {
+      "data": "col_18",
+      "title": "快递公司",
+      "width": 150,
+      "readOnly": true,
+      "filter": false
+    },
+    {
+      "data": "col_19",
+      "title": "运单号",
+      "width": 200,
+      "readOnly": true,
+      "filter": false
+    }
+  ]
+}
