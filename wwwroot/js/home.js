@@ -10,7 +10,7 @@ const querys = columns.filter(function (col) {
     return col.query == true
 })
 if (querys.length > 0) {
-    querys.forEach(q => {
+    querys.forEach(function (q) {
         $('#q').append($("<div style='margin:5px;width: 250px;'><label for='" + q.data + "'>"
             + q.title + "</label> <input id='txt_" + q.data + "' style='width:100%' placeholder='请输入" + q.title + "' name='"
             + q.data + "' type='text' value='' /></div>"))
@@ -37,7 +37,7 @@ const hot = new Handsontable(container, {
     width: '100%',
     language: 'zh-CN',
     colHeaders: true,
-    columns,
+    columns: columns,
     manualColumnMove: true,
     manualColumnResize: true,
     filters: true,
@@ -84,8 +84,11 @@ $('#btnExport').click(function () {
     } else {
         layer.confirm('确认要导出查询结果吗?', { btn: ['确定', '取消'], title: "提示" }, function () {
             var table = hot.toHTML();
-            table = table.replace(/<td/g, "<td STYLE='MSO-NUMBER-FORMAT:\\@@'");
-            tableToExcel(table)
+            table = table.replace(/<td/g, "<td style='mso-number-format:\"\@\";'");
+
+            tableToExcel(table, "", function () {
+                layer.closeAll();
+            })
         });
     }
 })
@@ -132,7 +135,7 @@ setTimeout(function () {
     const height = $(window).height() - $('#footer').height() - $('#header').height() - $('#rowcount').height() - 115
 
     hot.updateSettings({
-        height
+        height: height
     })
 }, 300)
 
@@ -140,14 +143,14 @@ window.onresize = function () {
     const height = $(window).height() - $('#footer').height() - $('#header').height() - $('#rowcount').height() - 115
 
     hot.updateSettings({
-        height
+        height: height
     })
 }
 
 var urltoJSON = function (url) {
     var arr = url.split('&');
     var p = {}
-    arr.forEach(a => {
+    arr.forEach(function (a) {
         var k = a.split('=')[0]
         var v = a.split('=')[1]
         p[k] = v;
@@ -166,7 +169,7 @@ var format = function (s, c) {
             return c[p];
         });
 }
-function tableToExcel(dom, sheetName) {
+function tableToExcel(dom, sheetName, callback) {
     var uri = 'data:application/vnd.ms-excel;base64,';
     var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"' +
         'xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>'
@@ -176,4 +179,5 @@ function tableToExcel(dom, sheetName) {
 
     var ctx = { worksheet: sheetName || 'sheet1', table: dom };
     window.open(uri + base64(format(template, ctx)));
+    callback && callback();
 }
